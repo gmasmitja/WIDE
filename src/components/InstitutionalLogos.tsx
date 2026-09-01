@@ -5,6 +5,15 @@ interface LogoProps {
   compact?: boolean;
 }
 
+// Helper to resolve public assets correctly on both root domain and subpaths (like GitHub Pages /WIDE/)
+const getAssetUrl = (filename: string) => {
+  const meta = import.meta as unknown as { env?: { BASE_URL?: string } };
+  const base = meta.env?.BASE_URL || './';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanFile = filename.startsWith('/') ? filename.slice(1) : filename;
+  return `${cleanBase}${cleanFile}`;
+};
+
 /**
  * Universitat Politècnica de Catalunya · BarcelonaTech (UPC)
  * Uses official /logo-UPC.png
@@ -13,7 +22,7 @@ export const LogoUPC: React.FC<LogoProps> = ({ className = "h-8", compact = fals
   return (
     <div className={`inline-flex items-center justify-center shrink-0 ${className}`}>
       <img
-        src="/logo-UPC.png"
+        src={getAssetUrl('logo-UPC.png')}
         alt="Universitat Politècnica de Catalunya · BarcelonaTech (UPC)"
         className="h-full w-auto max-h-full object-contain select-none"
         loading="eager"
@@ -30,7 +39,7 @@ export const LogoIREC: React.FC<LogoProps> = ({ className = "h-8", compact = fal
   return (
     <div className={`inline-flex items-center justify-center shrink-0 ${className}`}>
       <img
-        src="/Logo-IREC.png"
+        src={getAssetUrl('Logo-IREC.png')}
         alt="Institut de Recerca en Energia de Catalunya (IREC)"
         className="h-full w-auto max-h-full object-contain select-none"
         loading="eager"
@@ -47,7 +56,7 @@ export const LogoUB: React.FC<LogoProps> = ({ className = "h-8", compact = false
   return (
     <div className={`inline-flex items-center justify-center shrink-0 ${className}`}>
       <img
-        src="/Logo_UB.png"
+        src={getAssetUrl('Logo_UB.png')}
         alt="Universitat de Barcelona (UB)"
         className="h-full w-auto max-h-full object-contain select-none"
         loading="eager"
@@ -64,7 +73,7 @@ export const LogoUPM: React.FC<LogoProps> = ({ className = "h-8", compact = fals
   return (
     <div className={`inline-flex items-center justify-center shrink-0 ${className}`}>
       <img
-        src="/Logo-CLUPM.png"
+        src={getAssetUrl('Logo-CLUPM.png')}
         alt="Centro Láser UPM - Universidad Politécnica de Madrid"
         className="h-full w-auto max-h-full object-contain select-none"
         loading="eager"
@@ -81,7 +90,7 @@ export const LogoOfficialFundingBanner: React.FC<LogoProps> = ({ className = "h-
   return (
     <div className={`inline-flex items-center justify-center shrink-0 ${className}`}>
       <img
-        src="/miciu-UEfse-aei.png"
+        src={getAssetUrl('miciu-UEfse-aei.png')}
         alt="Ministerio de Ciencia, Innovación y Universidades · Unión Europea Fondo Social Europeo · Agencia Estatal de Investigación"
         className="h-full w-auto max-h-full object-contain select-none"
         loading="eager"
