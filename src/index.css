@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --paper: #F8FAFC;
+    --paper-card: #FFFFFF;
+    --paper-dim: #F1F5F9;
+    --paper-accent: #E2E8F0;
+    --ink: #0F172A;
+    --ink-muted: #475569;
+    --ink-light: #64748B;
+    --line: #E2E8F0;
+    --line-subtle: #F1F5F9;
+
+    /* Theme Primary Accent */
+    --primary: #4F46E5;
+    --primary-dark: #3730A3;
+    --primary-light: #EEF2FF;
+
+    /* Subproject thematic colors aligned with Professional Polish */
+    --sp1: #4F46E5;      /* UPC Coordinator - Crisp Indigo */
+    --sp2: #0284C7;      /* IREC - Ocean/Sky Blue */
+    --sp3: #D97706;      /* UB - Amber/Ochre */
+    --sp4: #7C3AED;      /* CL-UPM - Deep Purple */
+  }
+
+  body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: 'Plus Jakarta Sans', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.025em;
+  }
+
+  .font-mono-code {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+

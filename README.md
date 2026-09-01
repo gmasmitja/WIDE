@@ -1,11 +1,27 @@
-<div align="center">
+# WIDE Project Webpage
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+> **Wide-bandgap materials for Integrated Development of green Energy systems**
+> Knowledge Generation Projects 2025 (`PID-2025`)
+> MICIU / AEI / EU (ESF+)
 
-  <h1>Built with AI Studio</h2>
+## Consortium Partners
+- **UPC** (Coordinator - Universitat Politècnica de Catalunya)
+- **IREC** (Institut de Recerca en Energia de Catalunya)
+- **UB** (Universitat de Barcelona)
+- **CL-UPM** (Universidad Politécnica de Madrid)
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Quick Start (Local Development)
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+```bash
+# 1. Install dependencies
+npm install
 
-</div>
+# 2. Start local development server
+npm run dev
+
+# 3. Build for production (GitHub Pages)
+npm run build
+```
+
+## GitHub Pages Deployment
+This project is configured with automated GitHub Actions. When pushing to the `main` branch, it automatically builds and deploys to GitHub Pages via `.github/workflows/deploy.yml`.

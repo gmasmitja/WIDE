@@ -1,0 +1,8 @@
+{
+  "name": "WIDE — Wide-Bandgap Materials for Green Energy Systems",
+  "description": "Official portal of the WIDE coordinated research project (PID-2025 call, Ministry of Science, Innovation and Universities / AEI) led by UPC with IREC, UB, and CL-UPM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
+
