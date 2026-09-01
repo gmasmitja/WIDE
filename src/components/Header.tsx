@@ -54,22 +54,22 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab }) => {
       </div>
 
       {/* Main Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand */}
         <button
           onClick={() => handleTabClick('overview')}
-          className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
+          className="flex items-center gap-2.5 sm:gap-3 group text-left cursor-pointer focus:outline-none min-w-0"
         >
-          <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-sm shrink-0 group-hover:bg-indigo-700 transition-colors">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-sm shrink-0 group-hover:bg-indigo-700 transition-colors">
             W
           </div>
-          <div className="flex flex-col text-left">
-            <span className="text-lg font-bold tracking-tight text-slate-900 leading-none group-hover:text-indigo-600 transition-colors">
+          <div className="flex flex-col text-left min-w-0">
+            <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900 leading-none group-hover:text-indigo-600 transition-colors">
               WIDE - project
             </span>
-            <div className="text-xs text-slate-500 font-medium mt-1 leading-tight">
-              <div className="whitespace-nowrap">Wide-bandgap materials for Integrated Development</div>
-              <div className="whitespace-nowrap">of green Energy systems</div>
+            <div className="text-[10px] sm:text-xs text-slate-500 font-medium mt-1 leading-snug">
+              <div className="whitespace-nowrap">Wide-bandgap materials for Integrated</div>
+              <div className="whitespace-nowrap">Development of green Energy systems</div>
             </div>
           </div>
         </button>
@@ -95,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab }) => {
         </nav>
 
         {/* Mobile menu toggle */}
-        <div className="flex lg:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2 shrink-0">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 shadow-2xs cursor-pointer"
