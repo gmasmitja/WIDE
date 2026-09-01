@@ -1,7 +1,7 @@
 import React from 'react';
-import { subprojects } from '../data/consortiumData';
+import { subprojects, institutions } from '../data/consortiumData';
 import { LogoUPC, LogoIREC, LogoUB, LogoUPM } from './InstitutionalLogos';
-import { Layers, UserCheck, ChevronRight, Bookmark } from 'lucide-react';
+import { Layers, UserCheck, ChevronRight, Bookmark, ExternalLink } from 'lucide-react';
 import { PageTab } from '../types';
 
 interface SubprojectsSectionProps {
@@ -9,6 +9,11 @@ interface SubprojectsSectionProps {
 }
 
 export const SubprojectsSection: React.FC<SubprojectsSectionProps> = ({ onSelectTab }) => {
+  const getInstitutionUrl = (instCode: string, spId: string) => {
+    const found = institutions.find((i) => i.code === instCode || i.subprojectId === spId);
+    return found?.website || 'https://www.upc.edu';
+  };
+
   const getInstitutionLogo = (inst: string) => {
     switch (inst) {
       case 'UPC': return <LogoUPC className="h-8" compact={true} />;
@@ -74,9 +79,15 @@ export const SubprojectsSection: React.FC<SubprojectsSectionProps> = ({ onSelect
                     <span className="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
                       {sp.fundingAmount}
                     </span>
-                    <div className="shrink-0 flex items-center">
+                    <a
+                      href={getInstitutionUrl(sp.institution, sp.id)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 flex items-center hover:opacity-80 transition-opacity cursor-pointer"
+                      title={`Open ${sp.institutionFull} website`}
+                    >
                       {getInstitutionLogo(sp.institution)}
-                    </div>
+                    </a>
                   </div>
                 </div>
 
@@ -85,8 +96,17 @@ export const SubprojectsSection: React.FC<SubprojectsSectionProps> = ({ onSelect
                   <h3 className="text-xl font-bold text-slate-900 leading-snug tracking-tight">
                     {sp.title}
                   </h3>
-                  <div className="text-xs font-semibold text-slate-500 mt-1 font-mono">
-                    {sp.institutionFull}
+                  <div className="mt-1.5">
+                    <a
+                      href={getInstitutionUrl(sp.institution, sp.id)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 font-mono transition-colors group cursor-pointer"
+                      title={`Visit ${sp.institutionFull} official website`}
+                    >
+                      <span className="group-hover:underline underline-offset-4">{sp.institutionFull}</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600 transition-colors shrink-0" />
+                    </a>
                   </div>
                 </div>
 

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { ExternalLink, Menu, X, Sliders } from 'lucide-react';
+import { ExternalLink, Menu, X } from 'lucide-react';
 import { PageTab } from '../types';
 
 interface HeaderProps {
   activeTab: PageTab;
   onSelectTab: (tab: PageTab) => void;
-  onOpenEditModal: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab, onOpenEditModal }) => {
+export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks: { label: string; tab: PageTab }[] = [
@@ -41,14 +40,6 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab, onOpenEd
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={onOpenEditModal}
-              className="inline-flex items-center gap-1.5 text-xs text-slate-200 hover:text-white bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded transition-colors cursor-pointer"
-              title="Customize project metadata (reference, PIs, timeline)"
-            >
-              <Sliders className="w-3 h-3 text-amber-400" />
-              <span className="hidden md:inline">Edit Metadata</span>
-            </button>
             <a
               href="https://www.aei.gob.es/convocatorias/buscador-convocatorias/proyectos-generacion-conocimiento-2025"
               target="_blank"

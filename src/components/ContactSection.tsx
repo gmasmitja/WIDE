@@ -12,11 +12,30 @@ export const ContactSection: React.FC = () => {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Construct email subject and body
+    const subject = encodeURIComponent(
+      `[WIDE Project Inquiry] from ${formData.name || 'Researcher'}${formData.institution ? ` (${formData.institution})` : ''}`
+    );
+    
+    const body = encodeURIComponent(
+      `Dear Gerard Masmitja (WIDE Coordinator),\n\n` +
+      `You have received an inquiry regarding the WIDE project (PID-2025):\n\n` +
+      `--- SENDER DETAILS ---\n` +
+      `• Name: ${formData.name}\n` +
+      `• Email: ${formData.email}\n` +
+      `• Institution / Organization: ${formData.institution || 'Not specified'}\n\n` +
+      `--- MESSAGE ---\n` +
+      `${formData.message}\n\n` +
+      `----------------------------------------\n` +
+      `Sent via WIDE Consortium Web Portal (https://gmasmitja.github.io/WIDE/)`
+    );
+
+    const mailtoUrl = `mailto:gerard.masmitja@upc.edu?subject=${subject}&body=${body}`;
+    
+    // Open default mail client
+    window.location.href = mailtoUrl;
     setFormSent(true);
-    setTimeout(() => {
-      setFormSent(false);
-      setFormData({ name: '', email: '', institution: '', message: '' });
-    }, 4000);
   };
 
   const getInstitutionLogo = (code: string) => {
@@ -191,15 +210,48 @@ export const ContactSection: React.FC = () => {
             </h3>
 
             {formSent ? (
-              <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
-                <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
-                <h4 className="font-bold text-slate-900">Inquiry successfully submitted</h4>
-                <p className="text-xs text-slate-600">
-                  Thank you for your interest in the WIDE project (PID-2025). The coordination team will respond promptly.
+              <div className="p-6 bg-indigo-50/70 border border-indigo-200 rounded-xl space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-indigo-600 text-white rounded-lg">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">Email inquiry prepared for coordinator</h4>
+                    <p className="text-xs text-slate-600">
+                      Destination: <strong className="text-indigo-900 font-mono">gerard.masmitja@upc.edu</strong>
+                    </p>
+                  </div>
+                </div>
+                
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Your default email client should open with your message addressed directly to Gerard Masmitja (Consortium Coordinator). If it did not open automatically, you can send it directly:
                 </p>
+
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <a
+                    href={`mailto:gerard.masmitja@upc.edu?subject=${encodeURIComponent(`[WIDE Project Inquiry] from ${formData.name || 'Researcher'}`)}&body=${encodeURIComponent(`Dear Gerard Masmitja,\n\n${formData.message}\n\n---\nFrom: ${formData.name} (${formData.institution || ''})\nEmail: ${formData.email}`)}`}
+                    className="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Open Email Client</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFormSent(false);
+                      setFormData({ name: '', email: '', institution: '', message: '' });
+                    }}
+                    className="inline-flex items-center gap-1.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-lg text-xs font-semibold transition-colors cursor-pointer"
+                  >
+                    <span>Write Another Inquiry</span>
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} className="space-y-4">
+                <p className="text-xs text-slate-500 mb-2">
+                  Messages submitted here are routed exclusively to <strong>Gerard Masmitja</strong> (Consortium General Coordinator, UPC).
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-xs font-mono font-bold text-slate-700 block mb-1">Full Name</label>
@@ -214,7 +266,7 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="text-xs font-mono font-bold text-slate-700 block mb-1">Email Address</label>
+                    <label className="text-xs font-mono font-bold text-slate-700 block mb-1">Your Email Address</label>
                     <input
                       type="email"
                       required
@@ -249,13 +301,18 @@ export const ContactSection: React.FC = () => {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl text-xs font-bold transition-colors shadow-sm"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Submit Inquiry</span>
-                </button>
+                <div className="flex items-center justify-between pt-1">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl text-xs font-bold transition-colors shadow-sm cursor-pointer"
+                  >
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Send Inquiry to Coordinator</span>
+                  </button>
+                  <span className="text-[11px] font-mono text-slate-400">
+                    To: gerard.masmitja@upc.edu
+                  </span>
+                </div>
               </form>
             )}
           </div>

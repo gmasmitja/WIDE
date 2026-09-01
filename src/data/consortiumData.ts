@@ -70,7 +70,7 @@ export const institutions: Institution[] = [
     subprojectId: "sp4",
     city: "Madrid",
     address: "Centro Láser UPM, Campus Sur, Ctra. de Valencia km 7.3, 28031 Madrid, Spain",
-    website: "https://www.centrolaser.upm.es",
+    website: "https://www.upmlaser.upm.es/",
     mapQuery: "Centro Laser UPM Campus Sur Madrid",
     accentColor: "#6E4991"
   }

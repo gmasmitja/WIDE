@@ -6,11 +6,10 @@ import { LogoUPC, LogoIREC, LogoUB, LogoUPM, LogoOfficialFundingBanner } from '.
 
 interface HeroProps {
   grantInfo: GrantInfo;
-  onOpenEditModal: () => void;
   onSelectTab?: (tab: PageTab) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ grantInfo, onOpenEditModal, onSelectTab }) => {
+export const Hero: React.FC<HeroProps> = ({ grantInfo, onSelectTab }) => {
   const getInstitutionLogo = (inst: string) => {
     switch (inst) {
       case 'UPC': return <LogoUPC className="h-7" compact={true} />;
@@ -137,13 +136,6 @@ export const Hero: React.FC<HeroProps> = ({ grantInfo, onOpenEditModal, onSelect
               >
                 <UserCheck className="w-3.5 h-3.5 text-slate-600" />
                 <span>Research Team</span>
-              </button>
-
-              <button
-                onClick={onOpenEditModal}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-indigo-600 underline underline-offset-4 px-2 py-2 cursor-pointer"
-              >
-                Edit Metadata
               </button>
             </div>
           </div>

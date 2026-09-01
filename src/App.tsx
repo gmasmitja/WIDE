@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { grantInfo as defaultGrantInfo } from './data/consortiumData';
-import { GrantInfo, PageTab } from './types';
+import { grantInfo } from './data/consortiumData';
+import { PageTab } from './types';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ProjectOverview } from './components/ProjectOverview';
@@ -11,26 +11,8 @@ import { NewsSection } from './components/NewsSection';
 import { EquipmentSection } from './components/EquipmentSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { EditModal } from './components/EditModal';
 
 export default function App() {
-  const [grantInfo, setGrantInfo] = useState<GrantInfo>(() => {
-    const saved = localStorage.getItem('wide_project_grant_info');
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        if (parsed && parsed.reference === defaultGrantInfo.reference) {
-          return { ...defaultGrantInfo, ...parsed };
-        }
-      } catch (e) {
-        console.error('Failed to parse saved grant info', e);
-      }
-    }
-    return defaultGrantInfo;
-  });
-
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-
   // Helper to parse hash to PageTab
   const getTabFromHash = (): PageTab => {
     const hash = window.location.hash.replace('#', '').toLowerCase();
@@ -61,23 +43,12 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  const handleSaveGrantInfo = (newInfo: GrantInfo) => {
-    setGrantInfo(newInfo);
-    localStorage.setItem('wide_project_grant_info', JSON.stringify(newInfo));
-  };
-
-  const handleResetDefaults = () => {
-    setGrantInfo(defaultGrantInfo);
-    localStorage.removeItem('wide_project_grant_info');
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-indigo-600/15 selection:text-indigo-900 font-sans">
       {/* Persistent Sticky Header with PID-2025 status and tab navigation */}
       <Header
         activeTab={activeTab}
         onSelectTab={handleSelectTab}
-        onOpenEditModal={() => setIsEditModalOpen(true)}
       />
 
       {/* Main Dynamic View Content */}
@@ -87,7 +58,6 @@ export default function App() {
             {/* Hero with interactive bandgap simulator & project intro */}
             <Hero
               grantInfo={grantInfo}
-              onOpenEditModal={() => setIsEditModalOpen(true)}
               onSelectTab={handleSelectTab}
             />
 
@@ -106,7 +76,7 @@ export default function App() {
         {activeTab === 'consortium' && (
           <div className="animate-fadeIn">
             {/* 03: Consortium Team & Principal Investigators */}
-            <PeopleSection onOpenEditModal={() => setIsEditModalOpen(true)} />
+            <PeopleSection />
           </div>
         )}
 
@@ -141,15 +111,6 @@ export default function App() {
 
       {/* Persistent Comprehensive Footer with institutional logos & legal clause on ALL views */}
       <Footer grantInfo={grantInfo} />
-
-      {/* Personalization Modal */}
-      <EditModal
-        isOpen={isEditModalOpen}
-        onClose={() => setIsEditModalOpen(false)}
-        grantInfo={grantInfo}
-        onSaveGrantInfo={handleSaveGrantInfo}
-        onResetDefaults={handleResetDefaults}
-      />
     </div>
   );
 }

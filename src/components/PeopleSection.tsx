@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { teamMembers, participatingMembers, subprojects } from '../data/consortiumData';
 import { SubprojectId, ParticipatingMember, TeamMember } from '../types';
-import { Mail, Plus, Users, Award, Globe, GraduationCap, Wrench, Sparkles, Building2, UserPlus, Briefcase } from 'lucide-react';
+import { Mail, Users, Award, Globe, GraduationCap, Wrench, Sparkles, Building2, UserPlus, Briefcase } from 'lucide-react';
 
-interface PeopleSectionProps {
-  onOpenEditModal: () => void;
-}
+interface PeopleSectionProps {}
 
-export const PeopleSection: React.FC<PeopleSectionProps> = ({ onOpenEditModal }) => {
+export const PeopleSection: React.FC<PeopleSectionProps> = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
 
   const filteredPis = selectedFilter === 'all'
@@ -79,25 +77,13 @@ export const PeopleSection: React.FC<PeopleSectionProps> = ({ onOpenEditModal })
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-slate-200 pb-6">
-          <div>
-            <div className="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">
-              03 — Consortium Research Personnel
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Researchers & Institutional Teams
-            </h2>
+        <div className="mb-10 border-b border-slate-200 pb-6">
+          <div className="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">
+            03 — Consortium Research Personnel
           </div>
-          
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenEditModal}
-              className="text-xs font-mono font-bold bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 px-4 py-2 rounded-xl transition-all shadow-xs flex items-center gap-1.5"
-            >
-              <Plus className="w-3.5 h-3.5 text-indigo-600" />
-              <span>Grant & Team Info</span>
-            </button>
-          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Researchers & Institutional Teams
+          </h2>
         </div>
 
         {/* Filter buttons */}
