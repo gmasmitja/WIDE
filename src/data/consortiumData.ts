@@ -629,6 +629,14 @@ export const publications: Publication[] = [
 
 export const newsItems: NewsItem[] = [
   {
+    id: "news-kickoff",
+    date: "Upcoming · September 2026",
+    title: "WIDE Consortium Official Kick-Off Meeting (PID-2025)",
+    summary: "Principal investigators and research teams from UPC, IREC, UB, and CL-UPM will convene in the upcoming Kick-Off Meeting scheduled for September to officially launch the coordinated project and coordinate technical workflows across all subprojects.",
+    category: "Meeting",
+    badgeColor: "#4F46E5"
+  },
+  {
     id: "news-provisional-resolution",
     date: "15/07/2026",
     title: "Provisional Resolution Published for PID2025 Grants Call (AEI / MICIU)",
@@ -636,15 +644,7 @@ export const newsItems: NewsItem[] = [
     category: "Milestone",
     badgeColor: "#059669",
     linkUrl: "https://www.aei.gob.es/sites/default/files/convocatory_info/file/2026-07/PID2025-PRP-Texto%2BAnexos-firmado.pdf",
-    linkText: "View Official AEI Resolution (PDF)"
-  },
-  {
-    id: "news-kickoff",
-    date: "Upcoming · September 2026",
-    title: "WIDE Consortium Official Kick-Off Meeting (PID-2025)",
-    summary: "Principal investigators and research teams from UPC, IREC, UB, and CL-UPM will convene in the upcoming Kick-Off Meeting scheduled for September to officially launch the coordinated project and coordinate technical workflows across all subprojects.",
-    category: "Meeting",
-    badgeColor: "#4F46E5"
+    linkText: "Official AEI Resolution (PDF)"
   }
 ];
 
