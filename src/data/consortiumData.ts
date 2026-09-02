@@ -631,7 +631,7 @@ export const newsItems: NewsItem[] = [
   {
     id: "news-kickoff",
     date: "Upcoming · September 2026",
-    title: "WIDE Consortium Official Kick-Off Meeting (PID-2025)",
+    title: "WIDE Consortium Official Kick-Off Meeting (Coming Soon)",
     summary: "Principal investigators and research teams from UPC, IREC, UB, and CL-UPM will convene in the upcoming Kick-Off Meeting scheduled for September to officially launch the coordinated project and coordinate technical workflows across all subprojects.",
     category: "Meeting",
     badgeColor: "#4F46E5"
