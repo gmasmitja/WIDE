@@ -28,7 +28,7 @@ export const ContactSection: React.FC = () => {
       `--- MESSAGE ---\n` +
       `${formData.message}\n\n` +
       `----------------------------------------\n` +
-      `Sent via WIDE Consortium Web Portal (https://gmasmitja.github.io/WIDE/)`
+      `Sent via WIDE Consortium Web Portal (https://wide.upc.edu)`
     );
 
     const mailtoUrl = `mailto:gerard.masmitja@upc.edu?subject=${subject}&body=${body}`;
