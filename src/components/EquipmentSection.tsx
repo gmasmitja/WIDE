@@ -86,10 +86,7 @@ export const EquipmentSection: React.FC = () => {
                 className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all"
               >
                 {/* Institution Header Banner */}
-                <div
-                  className="p-6 sm:p-7 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4"
-                  style={{ borderLeft: `6px solid ${sp?.color || '#4F46E5'}` }}
-                >
+                <div className="p-6 sm:p-7 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center gap-2.5">
                       <span
@@ -100,9 +97,6 @@ export const EquipmentSection: React.FC = () => {
                       </span>
                       <span className="text-sm font-bold text-slate-800">
                         {eq.institutionFull || eq.institution} ({eq.institution})
-                      </span>
-                      <span className="text-[11px] font-mono font-bold uppercase bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-md text-slate-600">
-                        {eq.category}
                       </span>
                     </div>
 

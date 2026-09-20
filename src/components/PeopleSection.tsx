@@ -236,10 +236,7 @@ export const PeopleSection: React.FC<PeopleSectionProps> = () => {
                 className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs"
               >
                 {/* Institution Sub-Header */}
-                <div
-                  className="p-5 sm:p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/70"
-                  style={{ borderLeft: `6px solid ${sp.color}` }}
-                >
+                <div className="p-5 sm:p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/70">
                   <div>
                     <div className="flex items-center gap-2.5 mb-1">
                       <span

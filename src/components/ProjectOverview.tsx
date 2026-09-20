@@ -80,20 +80,20 @@ export const ProjectOverview: React.FC = () => {
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-                  <div className="bg-indigo-50/70 p-4 rounded-xl border border-indigo-100">
-                    <span className="text-[11px] font-mono text-indigo-700 font-bold block uppercase tracking-wider">Demonstrator 1</span>
+                  <div className="bg-yellow-50/80 p-4 rounded-xl border border-yellow-200">
+                    <span className="text-[11px] font-mono text-yellow-800 font-bold block uppercase tracking-wider">Demonstrator 1</span>
                     <h4 className="text-sm font-bold text-slate-900 mt-1">Semi-Transparent PV (STPV)</h4>
                     <p className="text-xs text-slate-600 mt-1">High average visible transmittance (AVT) and colour rendering index (CRI) for BIPV and agrivoltaics.</p>
                   </div>
-                  <div className="bg-sky-50/70 p-4 rounded-xl border border-sky-100">
-                    <span className="text-[11px] font-mono text-sky-700 font-bold block uppercase tracking-wider">Demonstrator 2</span>
-                    <h4 className="text-sm font-bold text-slate-900 mt-1">UV Photodetectors</h4>
-                    <p className="text-xs text-slate-600 mt-1">Visible-blind and solar-blind high-responsivity sensors with fast response times.</p>
-                  </div>
-                  <div className="bg-amber-50/70 p-4 rounded-xl border border-amber-100">
-                    <span className="text-[11px] font-mono text-amber-700 font-bold block uppercase tracking-wider">Demonstrator 3</span>
+                  <div className="bg-purple-50/80 p-4 rounded-xl border border-purple-200">
+                    <span className="text-[11px] font-mono text-purple-700 font-bold block uppercase tracking-wider">Demonstrator 2</span>
                     <h4 className="text-sm font-bold text-slate-900 mt-1">Photoelectrochemical (PEC) Cells</h4>
                     <p className="text-xs text-slate-600 mt-1">Direct solar-driven water splitting and green hydrogen production with high stability.</p>
+                  </div>
+                  <div className="bg-slate-100/70 p-4 rounded-xl border border-slate-200">
+                    <span className="text-[11px] font-mono text-slate-600 font-bold block uppercase tracking-wider">Demonstrator 3</span>
+                    <h4 className="text-sm font-bold text-slate-900 mt-1">UV Photodetectors</h4>
+                    <p className="text-xs text-slate-600 mt-1">Visible-blind and solar-blind high-responsivity sensors with fast response times.</p>
                   </div>
                 </div>
               </div>

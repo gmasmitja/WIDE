@@ -50,10 +50,6 @@ export const SubprojectsSection: React.FC<SubprojectsSectionProps> = ({ onSelect
               key={sp.id}
               id={`subproject-${sp.id}`}
               className="rounded-xl border border-slate-200 transition-all duration-200 overflow-hidden flex flex-col justify-between bg-white shadow-2xs hover:shadow-sm"
-              style={{
-                borderLeftWidth: '5px',
-                borderLeftColor: sp.color
-              }}
             >
               <div className="p-6 sm:p-8 space-y-5">
                 {/* Top bar with Tag + Reference + Funding + Institution Logo */}
@@ -96,18 +92,6 @@ export const SubprojectsSection: React.FC<SubprojectsSectionProps> = ({ onSelect
                   <h3 className="text-xl font-bold text-slate-900 leading-snug tracking-tight">
                     {sp.title}
                   </h3>
-                  <div className="mt-1.5">
-                    <a
-                      href={getInstitutionUrl(sp.institution, sp.id)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 font-mono transition-colors group cursor-pointer"
-                      title={`Visit ${sp.institutionFull} official website`}
-                    >
-                      <span className="group-hover:underline underline-offset-4">{sp.institutionFull}</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600 transition-colors shrink-0" />
-                    </a>
-                  </div>
                 </div>
 
                 {/* Summary */}
@@ -149,9 +133,9 @@ export const SubprojectsSection: React.FC<SubprojectsSectionProps> = ({ onSelect
                   </div>
                 </div>
 
-                {/* Materials tags */}
+                {/* Materials tags / Keywords */}
                 <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                  <span className="text-[11px] font-mono text-slate-400 font-bold uppercase mr-1">Key Materials:</span>
+                  <span className="text-[11px] font-mono text-slate-400 font-bold uppercase mr-1">KEYWORDS:</span>
                   {sp.keyMaterials.map((mat) => (
                     <span key={mat} className="text-xs font-mono font-bold bg-slate-100 text-slate-800 px-2.5 py-1 rounded-md border border-slate-200">
                       {mat}
@@ -160,29 +144,45 @@ export const SubprojectsSection: React.FC<SubprojectsSectionProps> = ({ onSelect
                 </div>
               </div>
 
-              {/* Bottom PI Strip with Dual IPs */}
-              <div className="bg-slate-50 border-t border-slate-200 px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs">
-                <div className="flex flex-wrap items-center gap-3">
-                  <div className="flex items-center gap-1.5">
-                    <UserCheck className="w-3.5 h-3.5" style={{ color: sp.color }} />
-                    <span className="font-mono text-[10px] text-slate-400 font-bold">PI1:</span>
-                    <strong className="text-slate-900 font-semibold">{sp.pi1}</strong>
+              {/* Bottom PI Strip with Dual IPs & Institution Link */}
+              <div className="bg-slate-50 border-t border-slate-200 px-6 py-3.5 space-y-2.5 text-xs">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex items-center gap-1.5">
+                      <UserCheck className="w-3.5 h-3.5" style={{ color: sp.color }} />
+                      <span className="font-mono text-[10px] text-slate-400 font-bold">PI1:</span>
+                      <strong className="text-slate-900 font-semibold">{sp.pi1}</strong>
+                    </div>
+                    <span className="text-slate-300">|</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-mono text-[10px] text-slate-400 font-bold">PI2:</span>
+                      <strong className="text-slate-800 font-semibold">{sp.pi2}</strong>
+                    </div>
                   </div>
-                  <span className="text-slate-300">|</span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-mono text-[10px] text-slate-400 font-bold">PI2:</span>
-                    <strong className="text-slate-800 font-semibold">{sp.pi2}</strong>
-                  </div>
+
+                  <button
+                    onClick={() => onSelectTab ? onSelectTab('consortium') : undefined}
+                    className="font-mono text-xs font-bold hover:underline flex items-center gap-1 ml-auto cursor-pointer"
+                    style={{ color: sp.color }}
+                  >
+                    <span>View team</span>
+                    <ChevronRight className="w-3 h-3" />
+                  </button>
                 </div>
 
-                <button
-                  onClick={() => onSelectTab ? onSelectTab('consortium') : undefined}
-                  className="font-mono text-xs font-bold hover:underline flex items-center gap-1 ml-auto cursor-pointer"
-                  style={{ color: sp.color }}
-                >
-                  <span>View team</span>
-                  <ChevronRight className="w-3 h-3" />
-                </button>
+                {/* Institution link below PI1 and PI2 */}
+                <div className="pt-2 border-t border-slate-200/70 flex items-center">
+                  <a
+                    href={getInstitutionUrl(sp.institution, sp.id)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 hover:text-indigo-600 font-mono transition-colors group cursor-pointer"
+                    title={`Visit ${sp.institutionFull} official website`}
+                  >
+                    <span className="group-hover:underline underline-offset-4">{sp.institutionFull}</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600 transition-colors shrink-0" />
+                  </a>
+                </div>
               </div>
             </div>
           ))}

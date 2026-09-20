@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ grantInfo, onSelectTab }) => {
             </div>
 
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              An interuniversity research consortium coordinated by the <strong className="text-slate-900 font-semibold">Universitat Politècnica de Catalunya (UPC)</strong>, in partnership with the <strong className="text-sky-700 font-semibold">Catalonia Institute for Energy Research (IREC)</strong>, the <strong className="text-amber-700 font-semibold">Universitat de Barcelona (UB)</strong>, and the <strong className="text-purple-700 font-semibold">Laser Centre of the Universidad Politécnica de Madrid (CL-UPM)</strong>.
+              An interuniversity research consortium coordinated by the <strong className="text-slate-900 font-semibold">Universitat Politècnica de Catalunya (UPC)</strong>, in partnership with the <strong className="text-slate-900 font-semibold">Catalonia Institute for Energy Research (IREC)</strong>, the <strong className="text-slate-900 font-semibold">Universitat de Barcelona (UB)</strong>, and the <strong className="text-slate-900 font-semibold">Laser Centre of the Universidad Politécnica de Madrid (CL-UPM)</strong>.
             </p>
 
             {/* Key Project Highlights Cards */}

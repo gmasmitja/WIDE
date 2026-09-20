@@ -103,7 +103,7 @@ export const subprojects: Subproject[] = [
       "Wide-bandgap photoelectrochemical cells.",
       "Development of selective contacts and transparent electrodes."
     ],
-    keyMaterials: ["V₂Oₓ", "MoOₓ", "a-SiCₓ:H", "Metal-doped ZnO", "PAMAM"],
+    keyMaterials: ["Photovoltaic devices", "Photoelectrochemical cells", "Charge carrier-selective contacts based on dipoles"],
     workPackages: [
       { code: "WP1", name: "Development of wide-bandgap materials", leader: "IREC" },
       { code: "WP4", name: "Integration of wide-bandgap materials in optoelectronic devices", leader: "UPC" },
