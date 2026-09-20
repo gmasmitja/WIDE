@@ -32,8 +32,6 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onSelectTab }) => {
       <div className="bg-slate-900 text-slate-300 text-[11px] py-1.5 px-4 font-mono flex items-center justify-between">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span className="text-slate-400">Call:</span>
             <span className="font-semibold text-white">Proyectos de Generación de Conocimiento 2025</span>
             <span className="hidden sm:inline text-slate-600">|</span>
             <span className="hidden sm:inline text-slate-400">MICIU / AEI / EU (ESF+)</span>
